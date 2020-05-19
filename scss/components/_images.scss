@@ -1,0 +1,32 @@
+
+/* ============================================= */
+/*              Images                           */
+/* ============================================= */
+
+.img {
+  @include centered;
+  &-avatar {
+    @include centered;
+    @include t-margin-mxw;
+    max-height: 100%;
+  }
+  &-frame {
+    @include t-margin-mxw;
+    padding: 13px;
+    border: 1px solid #ccc;
+  }
+}
+
+.logo {
+  @include bp(medium) {
+    margin-left: initial;
+    margin-right: initial;
+  }
+}
+
+
+  
+
+
+  
+  

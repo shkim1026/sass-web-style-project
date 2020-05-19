@@ -1,0 +1,71 @@
+
+/* ============================================= */
+/*              Grid System                      */
+/* ============================================= */
+
+.container {
+  padding: 0 10px;
+  @include bp(medium) {
+    max-width: 1400px;
+    @include centered;
+  }
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  padding: 1em 10px;
+
+  @include bp(medium) {
+    flex-direction: row;
+  }
+}
+
+[class^=col] {
+  margin-top: 10px;
+  flex-basis: 100%;
+  min-height: 25px;
+  padding: 10px;
+  border-radius: 5px;
+
+  @include bp(medium) {
+    display: flex;
+    justify-content: center;
+    margin-top: 0;
+    align-items: center;
+  }
+}
+
+[class^=col] + [class^=col] {
+  @include bp(medium) {
+    margin-left: 10px;
+  }
+}
+
+.centered {
+  @include bp(medium) {
+    @include centered;
+  }
+}
+
+//To assign colors in .theme.col
+@each $number, $color in $themes {
+  .theme.col-#{$number} {
+    background-color: $color;
+  }
+}
+
+.card {
+  flex-basis: 100%;
+}
+
+//Flex basis for columns
+@include bp(medium) {
+  @for $number from 1 through 12 {
+    .col-#{$number} {
+      flex-basis: (100% / 12) * $number;
+    }
+  } 
+}
+  
+  
